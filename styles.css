@@ -1,0 +1,282 @@
+/* Fondo y overlay */
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-size: cover;         /* Hace que la imagen cubra toda la ventana */
+    background-position: center;    /* Centra la imagen */
+    background-repeat: no-repeat;   /* No repite la imagen */
+    background-attachment: fixed;   /* Fija el fondo al viewport */
+    transition: background-image 1s ease;
+    position: relative;
+    /* Elimina cualquier color de fondo sólido si quieres solo la imagen */
+    background-color: #222; /* o #fff o transparente */
+}
+
+#overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.45); /* Opacidad del overlay */
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Encabezado */
+h1 {
+    text-align: center;
+    color: #fff;
+    text-shadow: 2px 2px 8px #222;
+    margin-top: 1.2em;
+    z-index: 2;
+    position: relative;
+}
+
+/* Formularios */
+form {
+    background: rgba(255,255,255,0.85);
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+    padding: 1.5em 2em;
+    margin: 1.5em auto 1em auto;
+    max-width: 420px;
+    z-index: 2;
+    position: relative;
+}
+
+label, select, input {
+    font-size: 1em;
+    margin-bottom: 0.7em;
+    display: block;
+    width: 100%;
+}
+
+button {
+    background: #2d7a4a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7em 1.5em;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 0.5em;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #1e5231;
+}
+
+/* Resultados */
+#results {
+    margin: 2em auto;
+    max-width: 700px;
+    z-index: 2;
+    position: relative;
+}
+
+.result-card {
+    background: rgba(255,255,255,0.92);
+    border-radius: 18px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+    padding: 2em 2em 1.5em 2em;
+    margin-bottom: 2em;
+    transition: box-shadow 0.3s;
+    position: relative;
+    z-index: 2;
+}
+
+.result-card h2 {
+    margin-top: 0;
+    color: #2d7a4a;
+    text-shadow: 1px 1px 4px #e0e0e0;
+}
+
+.result-card img {
+    display: block;
+    margin: 0 auto 1em auto;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+}
+
+.result-card p {
+    color: #222;
+    margin-bottom: 0.7em;
+    font-size: 1.08em;
+}
+
+.result-card strong {
+    color: #1e5231;
+}
+
+/* Lista de especies */
+.species-list-item {
+    background: rgba(255,255,255,0.85);
+    border-radius: 8px;
+    margin: 0.5em 0;
+    padding: 0.7em 1em;
+    font-size: 1.1em;
+    color: #2d7a4a;
+    box-shadow: 0 2px 8px rgba(90, 168, 90, 0.08);
+}
+
+/* Marca de agua */
+#watermark {
+    position: fixed;
+    bottom: 16px;
+    right: 24px;
+    color: #fff;
+    background: rgba(0,0,0,0.35);
+    padding: 6px 16px;
+    border-radius: 12px;
+    font-size: 1em;
+    font-family: inherit;
+    z-index: 1000;
+    pointer-events: none;
+    letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    form, #results {
+        max-width: 98vw;
+        padding: 1em;
+    }
+    .result-card {
+        padding: 1em;
+    }
+}
+/* Minijuego de Ahorcado */
+#hangman-game {
+    background: rgba(255,255,255,0.97);
+    border-radius: 18px;
+    padding: 2em 1em 1.5em 1em;
+    max-width: 95vw;
+    margin: 2em auto;
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+    z-index: 10;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#hangman-img {
+    margin-bottom: 1em;
+    max-width: 180px;
+}
+#hangman-word {
+    font-size: 2em;
+    letter-spacing: 0.2em;
+    margin: 1em 0;
+    font-family: monospace;
+}
+#hangman-letters {
+    margin: 1em 0;
+    color: #2d7a4a;
+    font-weight: bold;
+}
+#hangman-message {
+    margin-top: 1em;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+#hangman-input {
+    font-size: 1.2em;
+    width: 2em;
+    text-align: center;
+    margin-right: 0.5em;
+}
+#hangman-try, #hangman-restart {
+    background: #2d7a4a;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5em 1.2em;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+    transition: background 0.2s;
+}
+#hangman-try:hover, #hangman-restart:hover {
+    background: #1e5231;
+}
+#show-hangman {
+    background: #e6b800;
+    color: #222;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7em 1.5em;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-bottom: 2em;
+    transition: background 0.2s;
+}
+#show-hangman:hover {
+    background: #b38f00;
+}
+#hangman-flex {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2vw;
+    margin-bottom: 1.5em;
+    flex-wrap: wrap;
+}
+
+#hangman-dino-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#hangman-dino-img {
+    max-width: 38vw;
+    max-height: 65vh;
+    width: auto;
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    background: #fff;
+    display: block;
+}
+
+#hangman-img-stack {
+    position: relative;
+    width: 300px;
+    height: 450px;
+    max-width: 45vw;
+    max-height: 65vh;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#hangman-img-stack img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Resultado del Ahorcado */
+#hangman-result-overlay {
+    display: none;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,0.95);
+    flex-direction: column;
+}
+
+#hangman-result-img {
+    max-width: 90%;
+    max-height: 90%;
+}
