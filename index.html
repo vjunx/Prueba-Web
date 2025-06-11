@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dino App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Dino App</h1>
+  <form id="searchForm">
+    <label for="searchType">Buscar por:</label>
+    <select id="searchType" name="searchType">
+      <option value="nombre">Nombre</option>
+      <option value="periodo">Periodo</option>
+    </select>
+    
+    <div id="nameInput" style="display:none;">
+      <label for="dinoName"><b>Nombre del Dinosaurio</b></label>
+      <input type="text" id="dinoName" name="dinoName" placeholder="Ej: tyrannosaurus">
+    </div>
+    <div id="periodInput">
+      <label for="period">Periodo:</label>
+      <select id="period" name="period">
+        <option value="jurásico">Jurásico</option>
+        <option value="cretácico">Cretácico</option>
+      </select>
+    </div>
+    <button type="submit">Buscar</button>
+  </form>
+  <form id="subcategoryForm" style="display: none;">
+    <label for="subcategory">Subcategoría:</label>
+    <select id="subcategory" name="subcategory">
+      <option value="1">Inferior</option>
+      <option value="2">Medio</option>
+      <option value="3">Superior</option>
+    </select>
+    <button type="submit">Buscar</button>
+  </form>
+  <form id="dinoSelectionForm" style="display: none;">
+    <label for="dinoNumber">Elige una especie de dinosaurio (número):</label>
+    <input type="number" id="dinoNumber" name="dinoNumber">
+    <button type="submit">Buscar</button>
+  </form>
+  <div id="overlay"></div>
+  <div id="results"></div>
+  <!-- Minijuego de Ahorcado -->
+<div id="hangman-game" style="display:none;">
+  <h2>¡Adivina el dinosaurio!</h2>
+  <div id="hangman-flex">
+    <div id="hangman-dino-col">
+      <img id="hangman-dino-img" src="" alt="Dinosaurio">
+    </div>
+    <div id="hangman-img-stack"></div>
+  </div>
+  <div id="hangman-word"></div>
+  <div id="hangman-letters"></div>
+  <input type="text" id="hangman-input" maxlength="1" autocomplete="off" style="text-transform:uppercase;">
+  <button id="hangman-try">Probar letra</button>
+  <button id="hangman-restart" style="display:none;">Jugar de nuevo</button>
+  <div id="hangman-message"></div>
+</div>
+<button id="show-hangman" style="margin:2em auto;display:block;">Jugar al Ahorcado</button>
+<div id="hangman-result-overlay" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%; z-index:200; justify-content:center; align-items:center; background:rgba(255,255,255,0.95); flex-direction:column;">
+  <img id="hangman-result-img" src="" style="max-width:80vw; max-height:70vh; margin-bottom:1em;">
+  <div id="hangman-result-message" style="font-size:2em; font-weight:bold; color:#2d7a4a; margin-bottom:1em;"></div>
+  <button id="hangman-restart-overlay" style="background:#2d7a4a; color:#fff; border:none; border-radius:8px; padding:0.7em 1.5em; font-size:1.1em; cursor:pointer;">Jugar de nuevo</button>
+  <button id="hangman-close" style="background:#b80000; color:#fff; border:none; border-radius:8px; padding:0.7em 1.5em; font-size:1.1em; cursor:pointer; margin-left:0.5em;">Cerrar juego</button>
+</div>
+  <div id="watermark">Fuente: Wikipedia</div>
+  <script src="script.js"></script>
+  <script src="hangman.js"></script>
+</body>
+</html>
